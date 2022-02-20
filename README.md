@@ -6,11 +6,11 @@
 <ul>
   <li>Artworks</li>
   <li>Logos</li>
-  <li>Custom Glass</li>
+  <li>Custom Cup</li>
  </ul>
  
 <h2>Simulation Videos:</h2>
-<p> Mobile Simulation <a href="https://1drv.ms/v/s!Al_QdsGsazh7gpM_dRzHizUxwsqA4A?e=N65PfS">here</a></p>
+<p> Desktop Simulation <a href="https://1drv.ms/v/s!Al_QdsGsazh7gpM_dRzHizUxwsqA4A?e=N65PfS">here</a></p>
 
 <h3>Skills that were used during the development</h3>
 <div style="display: inline_block"><br>
