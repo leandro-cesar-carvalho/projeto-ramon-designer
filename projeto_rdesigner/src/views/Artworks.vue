@@ -2,16 +2,21 @@
     <h1>Artworks</h1>
 
     <div id="main">
-        <div id="artwork-info" v-for="(artwork, index) in artworks" :key="index">
+        <div id="artwork-info" v-for="(artwork, index) in artworks" :key="index" @click="modal(artwork)">
             <img :src="'/Artwork/' + artwork + '.jpeg'" alt="">
         </div>
     </div>
+
+    <Modal @closeModal="closeModal" :category="category" :image="image" :showModal="show" />
 </template>
 
 <script>
+import Modal from '@/components/Modal.vue'
+
 export default {
     data() {
         return {
+            category : 'Artwork',
             artworks : [
                 'artwork1',
                 'artwork2',
@@ -34,7 +39,23 @@ export default {
                 'artwork19',
                 'artwork20',
                 'artwork21'
-            ]
+            ],
+            showModal : Boolean,
+            show : false,
+            image: ''
+        }
+    },
+    components: {
+        Modal
+    },
+    methods: {
+        modal(data) {
+            this.image = data;
+            this.show=true
+            console.log(this.show)
+        },
+        closeModal() {
+            this.show = false
         }
     }
 }
@@ -73,5 +94,6 @@ h1 {
 #artwork-info:hover {
     transition: ease 0.5s;
     transform: scale(1.03);
+    cursor: pointer;
 }
 </style>

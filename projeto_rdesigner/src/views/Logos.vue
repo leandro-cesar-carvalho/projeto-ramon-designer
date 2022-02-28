@@ -2,23 +2,44 @@
     <h1>Logos</h1>
 
     <div id="main">
-        <div id="logo-info" v-for="(logo, index) in logos" :key="index">
+        <div id="logo-info" v-for="(logo, index) in logos" :key="index" @click="modal(logo)">
             <img :src="'/Logos/' + logo + '.jpeg'" alt="">
         </div>
     </div>
+
+    <Modal @closeModal="closeModal" :category="category" :image="image" :showModal="show" />
 </template>
 
 <script>
+import Modal from '@/components/Modal.vue'
+
 export default {
     data() {
         return {
+            category : 'Logos',
             logos : [
                 'logo1',
                 'logo2',
                 'logo3',
                 'logo4',
                 'logo5',
-            ]
+            ],
+            showModal : Boolean,
+            show : false,
+            image: ''
+        }
+    },
+    components: {
+        Modal
+    },
+    methods: {
+        modal(data) {
+            this.image = data;
+            this.show=true
+            console.log(this.show)
+        },
+        closeModal() {
+            this.show = false
         }
     }
 }
@@ -59,5 +80,6 @@ h1 {
 #logo-info:hover {
     transition: ease 0.5s;
     transform: scale(1.03);
+    cursor: pointer;
 }
 </style>
